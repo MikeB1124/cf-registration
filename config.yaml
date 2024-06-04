@@ -16,7 +16,7 @@ stacks:
           ApiName: registration-api-gateway
 
   - name: lambda
-    class_path: lambda.Registartion
+    class_path: lambda.Registration
     variables:
         env-dict:
           BucketName: registration-shared-bucket
