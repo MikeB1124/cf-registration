@@ -7,4 +7,4 @@ stacks:
     class_path: shared.Registration
     variables:
       env-dict:
-        BucketName: registration-bucket
+        BucketName: registration-shared-bucket
