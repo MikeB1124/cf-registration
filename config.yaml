@@ -1,0 +1,10 @@
+namespace: cf-registration
+stacker_bucket_region: us-west-2
+sys_path: ./
+
+stacks:
+  - name: shared
+    class_path: shared.Registration
+    variables:
+      env-dict:
+        BucketName: registration-bucket
