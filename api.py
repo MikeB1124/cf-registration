@@ -64,7 +64,7 @@ class Registration(Blueprint):
 
         ssm_login_resource_id = ssm.Parameter(
             "LoginResourceId",
-            Name="login/resource/id",
+            Name="/login/resource/id",
             Type="String",
             Value=Ref(self.login_api_resource),
         )
