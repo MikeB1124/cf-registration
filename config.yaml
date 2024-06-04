@@ -22,3 +22,10 @@ stacks:
           BucketName: registration-shared-bucket
           RegistrationLambdaName: registration-lambda
           SharedSecretsId: trimana/dashboard/shared/secrets
+
+  - name: integrations
+    class_path: integrations.Registration
+    variables:
+        env-dict:
+          ApiKeyName: RegistrationApiKey
+          ApiUsagePlanName: RegistrationApiUsagePlan

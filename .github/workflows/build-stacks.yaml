@@ -35,3 +35,6 @@ jobs:
           stacker build config.yaml --targets shared -t
           stacker build config.yaml --targets api -t --recreate-failed
           stacker build config.yaml --targets lambda -t --recreate-failed
+          stacker build config.yaml --targets integrations -t --recreate-failed
+          rest_api_id=$(aws ssm get-parameter --name /registration/api/id --query Parameter.Value --output text)
+          aws apigateway create-deployment --rest-api-id $rest_api_id --stage-name api
