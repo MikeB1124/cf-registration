@@ -8,3 +8,9 @@ stacks:
     variables:
       env-dict:
         BucketName: registration-shared-bucket
+
+  - name: api
+    class_path: api.Registration
+    variables:
+        env-dict:
+          ApiName: registration-api-gateway
