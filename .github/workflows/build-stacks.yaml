@@ -34,3 +34,4 @@ jobs:
         run: |
           stacker build config.yaml --targets shared -t
           stacker build config.yaml --targets api -t --recreate-failed
+          stacker build config.yaml --targets lambda -t --recreate-failed

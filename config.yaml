@@ -15,7 +15,7 @@ stacks:
         env-dict:
           ApiName: registration-api-gateway
 
-  - name: lambdas
+  - name: lambda
     class_path: lambda.Registartion
     variables:
         env-dict:
