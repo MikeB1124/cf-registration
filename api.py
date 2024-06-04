@@ -14,13 +14,21 @@ class Registration(Blueprint):
         )
         self.template.add_resource(self.api)
 
-        self.registration_api_resource = apigateway.Resource(
-            "RegistrationResource",
+        self.signup_api_resource = apigateway.Resource(
+            "SignupResource",
             ParentId=GetAtt(self.api, "RootResourceId"),
             RestApiId=Ref(self.api),
-            PathPart="registration",
+            PathPart="signup",
         )
-        self.template.add_resource(self.registration_api_resource)
+        self.template.add_resource(self.signup_api_resource)
+
+        self.login_api_resource = apigateway.Resource(
+            "LoginResource",
+            ParentId=GetAtt(self.api, "RootResourceId"),
+            RestApiId=Ref(self.api),
+            PathPart="login",
+        )
+        self.template.add_resource(self.login_api_resource)
 
         self.template.add_output(
             Output(
@@ -46,13 +54,21 @@ class Registration(Blueprint):
         )
         self.template.add_resource(ssm_api_parent_resource_id)
 
-        ssm_registration_resource_id = ssm.Parameter(
-            "RegistrationResourceId",
-            Name="/registration/resource/id",
+        ssm_signup_resource_id = ssm.Parameter(
+            "SignupResourceId",
+            Name="/signup/resource/id",
             Type="String",
-            Value=Ref(self.registration_api_resource),
+            Value=Ref(self.signup_api_resource),
         )
-        self.template.add_resource(ssm_registration_resource_id)
+        self.template.add_resource(ssm_signup_resource_id)
+
+        ssm_login_resource_id = ssm.Parameter(
+            "LoginResourceId",
+            Name="login/resource/id",
+            Type="String",
+            Value=Ref(self.login_api_resource),
+        )
+        self.template.add_resource(ssm_login_resource_id)
 
     def create_template(self):
         self.create_api_gateway()

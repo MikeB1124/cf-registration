@@ -14,3 +14,11 @@ stacks:
     variables:
         env-dict:
           ApiName: registration-api-gateway
+
+  - name: lambdas
+    class_path: lambda.Registartion
+    variables:
+        env-dict:
+          BucketName: registration-shared-bucket
+          RegistrationLambdaName: registration-lambda
+          SharedSecretsId: trimana/dashboard/shared/secrets
