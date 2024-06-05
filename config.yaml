@@ -21,7 +21,7 @@ stacks:
         env-dict:
           BucketName: registration-shared-bucket
           RegistrationLambdaName: registration-lambda
-          SharedSecretsId: trimana/dashboard/shared/secrets
+          SharedSecretsId: registration/shared/secrets
 
   - name: integrations
     class_path: integrations.Registration
